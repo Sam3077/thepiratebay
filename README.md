@@ -147,6 +147,9 @@ You can customize your endpoint by setting the environment variable `THEPIRATEBA
 ```bash
 THEPIRATEBAY_DEFAULT_ENDPOINT=http://some-endpoint.com node some-script.js
 ```
+### Chromium Installation Path
+You can change the location of the Chromium installation to use with the environment variable `CHROMIUM_INSTALL_PATH`
+By default, this path is `/usr/bin/chromium-browsers`
 
 ## Used by:
 * [popcorn-time-desktop](https://github.com/amilajack/popcorn-time-desktop)
