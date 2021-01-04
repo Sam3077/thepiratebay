@@ -5,7 +5,7 @@ import cheerio from "cheerio";
 import UrlParse from "url-parse";
 import puppeteer from "puppeteer";
 import fetch from "node-fetch";
-import { baseUrl } from "./constants";
+import { baseUrl, chromiumInstallPath } from "./constants";
 
 const maxConcurrentRequests = 3;
 
@@ -98,7 +98,7 @@ export function parsePage<T>(
           new UrlParse(url).set("hostname", new UrlParse(_url).hostname).href
       )
       .map(async _url => {
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({executablePath: chromiumInstallPath});
         const page = await browser.newPage();
         await page.goto(_url).catch(async () => {
           await browser.close();
